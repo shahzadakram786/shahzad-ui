@@ -1,10 +1,13 @@
+"use client"
+
+import { useSyncExternalStore } from "react"
 import Link from "next/link"
 import { Clock, Mail, MapPin, Phone } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { SocialLinks, type SocialLink } from "@/components/blocks/social-icons"
 
-/** Evaluated once at module load (keeps Next 16 cacheComponents prerender happy) */
-const YEAR = new Date().getFullYear()
+const noopSubscribe = () => () => {}
+const getYear = () => new Date().getFullYear()
 
 export interface FooterColumn {
   title: string
@@ -37,6 +40,9 @@ export function Footer({
   tone = "dark",
   className,
 }: FooterProps) {
+  // Year only on the client: `new Date()` on the server breaks Next 16 prerendering (cacheComponents)
+  const year = useSyncExternalStore(noopSubscribe, getYear, () => null)
+
   const dark = tone === "dark"
   const sub = dark ? "text-zinc-400" : "text-muted-foreground"
   const linkCls = cn("transition-colors hover:text-primary", sub)
@@ -125,7 +131,7 @@ export function Footer({
             sub
           )}
         >
-          <p>{copyright ?? `© ${YEAR} ${brand.name}. All rights reserved.`}</p>
+          <p>{copyright ?? `© ${year ?? ""} ${brand.name}. All rights reserved.`.replace("©  ", "© ")}</p>
           {legal && legal.length > 0 && (
             <ul className="flex flex-wrap gap-x-6 gap-y-2">
               {legal.map((l) => (
