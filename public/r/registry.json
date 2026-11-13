@@ -1,0 +1,428 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "shahzad",
+  "homepage": "https://github.com/shahzadakram786/shahzad-ui",
+  "items": [
+    {
+      "name": "reveal",
+      "type": "registry:component",
+      "title": "Reveal",
+      "description": "Fade/slide-in-on-scroll wrapper (framer-motion).",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/blocks/reveal.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "section-heading",
+      "type": "registry:component",
+      "title": "Section Heading",
+      "description": "Eyebrow + title + description used by every section. Also exports <Highlight>.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/reveal.json"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/section-heading.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/section-heading.tsx"
+        }
+      ]
+    },
+    {
+      "name": "social-icons",
+      "type": "registry:component",
+      "title": "Social Icons",
+      "description": "SocialLinks row + SocialIcon for facebook, instagram, linkedin, x, github, youtube, tiktok, whatsapp.",
+      "dependencies": [
+        "react-icons"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/blocks/social-icons.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/social-icons.tsx"
+        }
+      ]
+    },
+    {
+      "name": "theme-provider",
+      "type": "registry:component",
+      "title": "Theme Provider",
+      "description": "next-themes provider for light/dark mode.",
+      "dependencies": [
+        "next-themes"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/blocks/theme-provider.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/theme-provider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "theme-toggle",
+      "type": "registry:component",
+      "title": "Theme Toggle",
+      "description": "Animated sun/moon light/dark button.",
+      "dependencies": [
+        "next-themes",
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/blocks/theme-toggle.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/theme-toggle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar",
+      "type": "registry:block",
+      "title": "Navbar",
+      "description": "Sticky glass navbar: logo, links, dropdowns, phone, CTA, theme toggle, animated mobile menu, scroll-spy for #anchors. Variants: default, pill.",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/theme-toggle.json"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/navbar.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/navbar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "top-bar",
+      "type": "registry:block",
+      "title": "Top Bar",
+      "description": "Contact strip above the navbar: email, phone, address, hours, socials.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/social-icons.json"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/top-bar.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/top-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero",
+      "type": "registry:block",
+      "title": "Hero",
+      "description": "Landing hero: badge, title, description, 2 CTAs, image or custom media, highlight strip. Variants: split, centered. Backgrounds: glow, grid, none.",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/hero.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/hero.tsx"
+        }
+      ]
+    },
+    {
+      "name": "page-hero",
+      "type": "registry:block",
+      "title": "Page Hero",
+      "description": "Inner-page banner with breadcrumb and optional background photo.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/blocks/page-hero.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/page-hero.tsx"
+        }
+      ]
+    },
+    {
+      "name": "features",
+      "type": "registry:block",
+      "title": "Features / Services",
+      "description": "Services or features grid with icons and links. Variants: cards, expand (hover-to-expand panels).",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/reveal.json",
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/section-heading.json"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/features.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/features.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stats",
+      "type": "registry:block",
+      "title": "Stats",
+      "description": "Animated count-up numbers. Variants: band (primary strip), cards.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/reveal.json",
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/section-heading.json"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/stats.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/stats.tsx"
+        }
+      ]
+    },
+    {
+      "name": "testimonials",
+      "type": "registry:block",
+      "title": "Testimonials",
+      "description": "Testimonials with ratings and avatars/initials. Variants: carousel (autoplay, arrows, dots), grid (masonry).",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/reveal.json",
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/section-heading.json"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/testimonials.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/testimonials.tsx"
+        }
+      ]
+    },
+    {
+      "name": "faq",
+      "type": "registry:block",
+      "title": "FAQ",
+      "description": "Animated accordion FAQ with FAQPage JSON-LD for SEO. Layouts: centered, split.",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/section-heading.json"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/faq.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/faq.tsx"
+        }
+      ]
+    },
+    {
+      "name": "contact-section",
+      "type": "registry:block",
+      "title": "Contact Section",
+      "description": "Contact info cards + form (name, email, optional phone, message) that POSTs JSON to an endpoint or calls onSubmit. Optional map embed.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "textarea",
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/reveal.json",
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/section-heading.json",
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/social-icons.json"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/contact-section.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/contact-section.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cta-banner",
+      "type": "registry:block",
+      "title": "CTA Banner",
+      "description": "Big rounded primary-color call-to-action box for before the footer.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/reveal.json"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/cta-banner.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/cta-banner.tsx"
+        }
+      ]
+    },
+    {
+      "name": "footer",
+      "type": "registry:block",
+      "title": "Footer",
+      "description": "Footer with brand, description, socials, link columns, contact info, legal links. Tones: dark, muted.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/social-icons.json"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/footer.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/footer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "site-config",
+      "type": "registry:file",
+      "title": "Site Config",
+      "description": "config/site.ts: one file for brand, nav, CTA, contact, socials, footer columns. Blocks take their props from here.",
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/navbar.json",
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/footer.json",
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/social-icons.json"
+      ],
+      "files": [
+        {
+          "path": "config/site.ts",
+          "type": "registry:file",
+          "target": "config/site.ts"
+        }
+      ]
+    },
+    {
+      "name": "theme-royal",
+      "type": "registry:theme",
+      "title": "Theme: Royal purple (RCM / medical billing)",
+      "description": "Sets --primary / --ring for the Royal purple (RCM / medical billing) look (light + dark).",
+      "cssVars": {
+        "light": {
+          "primary": "oklch(0.38 0.14 285)",
+          "primary-foreground": "oklch(0.985 0 0)",
+          "ring": "oklch(0.55 0.15 285)"
+        },
+        "dark": {
+          "primary": "oklch(0.70 0.15 285)",
+          "primary-foreground": "oklch(0.18 0.05 285)",
+          "ring": "oklch(0.60 0.15 285)"
+        }
+      }
+    },
+    {
+      "name": "theme-emerald",
+      "type": "registry:theme",
+      "title": "Theme: Emerald (food / restaurant / wellness)",
+      "description": "Sets --primary / --ring for the Emerald (food / restaurant / wellness) look (light + dark).",
+      "cssVars": {
+        "light": {
+          "primary": "oklch(0.58 0.14 163)",
+          "primary-foreground": "oklch(0.985 0 0)",
+          "ring": "oklch(0.70 0.14 163)"
+        },
+        "dark": {
+          "primary": "oklch(0.72 0.15 163)",
+          "primary-foreground": "oklch(0.20 0.04 163)",
+          "ring": "oklch(0.60 0.14 163)"
+        }
+      }
+    },
+    {
+      "name": "theme-neon",
+      "type": "registry:theme",
+      "title": "Theme: Neon violet (developer portfolio)",
+      "description": "Sets --primary / --ring for the Neon violet (developer portfolio) look (light + dark).",
+      "cssVars": {
+        "light": {
+          "primary": "oklch(0.56 0.24 293)",
+          "primary-foreground": "oklch(0.985 0 0)",
+          "ring": "oklch(0.75 0.14 215)"
+        },
+        "dark": {
+          "primary": "oklch(0.70 0.19 293)",
+          "primary-foreground": "oklch(0.16 0.04 293)",
+          "ring": "oklch(0.78 0.13 215)"
+        }
+      }
+    },
+    {
+      "name": "theme-ocean",
+      "type": "registry:theme",
+      "title": "Theme: Ocean blue (clinic / SaaS / corporate)",
+      "description": "Sets --primary / --ring for the Ocean blue (clinic / SaaS / corporate) look (light + dark).",
+      "cssVars": {
+        "light": {
+          "primary": "oklch(0.52 0.19 255)",
+          "primary-foreground": "oklch(0.985 0 0)",
+          "ring": "oklch(0.65 0.17 255)"
+        },
+        "dark": {
+          "primary": "oklch(0.68 0.16 255)",
+          "primary-foreground": "oklch(0.18 0.05 255)",
+          "ring": "oklch(0.58 0.17 255)"
+        }
+      }
+    },
+    {
+      "name": "website-kit",
+      "type": "registry:block",
+      "title": "Website Kit (everything)",
+      "description": "Installs every block + theme provider + site config in one go. Start every new website with this.",
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/navbar.json",
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/top-bar.json",
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/hero.json",
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/page-hero.json",
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/features.json",
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/stats.json",
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/testimonials.json",
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/faq.json",
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/contact-section.json",
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/cta-banner.json",
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/footer.json",
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/theme-provider.json",
+        "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/site-config.json"
+      ],
+      "files": []
+    }
+  ]
+}

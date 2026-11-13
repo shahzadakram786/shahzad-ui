@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "social-icons",
+  "title": "Social Icons",
+  "description": "SocialLinks row + SocialIcon for facebook, instagram, linkedin, x, github, youtube, tiktok, whatsapp.",
+  "dependencies": [
+    "react-icons"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/blocks/social-icons.tsx",
+      "content": "import {\n  FaFacebookF,\n  FaGithub,\n  FaInstagram,\n  FaLinkedinIn,\n  FaTiktok,\n  FaWhatsapp,\n  FaXTwitter,\n  FaYoutube,\n} from \"react-icons/fa6\"\nimport { cn } from \"@/lib/utils\"\n\nexport type SocialPlatform =\n  | \"facebook\"\n  | \"instagram\"\n  | \"linkedin\"\n  | \"x\"\n  | \"github\"\n  | \"youtube\"\n  | \"tiktok\"\n  | \"whatsapp\"\n\nexport interface SocialLink {\n  platform: SocialPlatform\n  href: string\n}\n\nconst icons: Record<SocialPlatform, React.ComponentType<{ className?: string }>> = {\n  facebook: FaFacebookF,\n  instagram: FaInstagram,\n  linkedin: FaLinkedinIn,\n  x: FaXTwitter,\n  github: FaGithub,\n  youtube: FaYoutube,\n  tiktok: FaTiktok,\n  whatsapp: FaWhatsapp,\n}\n\nconst labels: Record<SocialPlatform, string> = {\n  facebook: \"Facebook\",\n  instagram: \"Instagram\",\n  linkedin: \"LinkedIn\",\n  x: \"X (Twitter)\",\n  github: \"GitHub\",\n  youtube: \"YouTube\",\n  tiktok: \"TikTok\",\n  whatsapp: \"WhatsApp\",\n}\n\nexport function SocialIcon({ platform, className }: { platform: SocialPlatform; className?: string }) {\n  const Icon = icons[platform]\n  return <Icon className={className} />\n}\n\n/** Row of round social buttons. Inherits text color, so it works on dark and light backgrounds. */\nexport function SocialLinks({\n  links,\n  className,\n  itemClassName,\n}: {\n  links: SocialLink[]\n  className?: string\n  itemClassName?: string\n}) {\n  return (\n    <div className={cn(\"flex flex-wrap gap-2\", className)}>\n      {links.map((link) => (\n        <a\n          key={link.platform + link.href}\n          href={link.href}\n          target=\"_blank\"\n          rel=\"noopener noreferrer\"\n          aria-label={labels[link.platform]}\n          className={cn(\n            \"flex size-9 items-center justify-center rounded-full border border-current/15 opacity-80 transition hover:border-primary hover:bg-primary hover:text-primary-foreground hover:opacity-100\",\n            itemClassName\n          )}\n        >\n          <SocialIcon platform={link.platform} className=\"size-4\" />\n        </a>\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/blocks/social-icons.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

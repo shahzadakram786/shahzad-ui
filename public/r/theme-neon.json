@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-neon",
+  "title": "Theme: Neon violet (developer portfolio)",
+  "description": "Sets --primary / --ring for the Neon violet (developer portfolio) look (light + dark).",
+  "cssVars": {
+    "light": {
+      "primary": "oklch(0.56 0.24 293)",
+      "primary-foreground": "oklch(0.985 0 0)",
+      "ring": "oklch(0.75 0.14 215)"
+    },
+    "dark": {
+      "primary": "oklch(0.70 0.19 293)",
+      "primary-foreground": "oklch(0.16 0.04 293)",
+      "ring": "oklch(0.78 0.13 215)"
+    }
+  },
+  "type": "registry:theme"
+}

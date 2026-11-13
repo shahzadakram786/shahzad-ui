@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "website-kit",
+  "title": "Website Kit (everything)",
+  "description": "Installs every block + theme provider + site config in one go. Start every new website with this.",
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/navbar.json",
+    "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/top-bar.json",
+    "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/hero.json",
+    "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/page-hero.json",
+    "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/features.json",
+    "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/stats.json",
+    "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/testimonials.json",
+    "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/faq.json",
+    "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/contact-section.json",
+    "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/cta-banner.json",
+    "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/footer.json",
+    "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/theme-provider.json",
+    "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/site-config.json"
+  ],
+  "files": [],
+  "type": "registry:block"
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-royal",
+  "title": "Theme: Royal purple (RCM / medical billing)",
+  "description": "Sets --primary / --ring for the Royal purple (RCM / medical billing) look (light + dark).",
+  "cssVars": {
+    "light": {
+      "primary": "oklch(0.38 0.14 285)",
+      "primary-foreground": "oklch(0.985 0 0)",
+      "ring": "oklch(0.55 0.15 285)"
+    },
+    "dark": {
+      "primary": "oklch(0.70 0.15 285)",
+      "primary-foreground": "oklch(0.18 0.05 285)",
+      "ring": "oklch(0.60 0.15 285)"
+    }
+  },
+  "type": "registry:theme"
+}

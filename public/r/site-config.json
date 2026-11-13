@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "site-config",
+  "title": "Site Config",
+  "description": "config/site.ts: one file for brand, nav, CTA, contact, socials, footer columns. Blocks take their props from here.",
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/navbar.json",
+    "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/footer.json",
+    "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/social-icons.json"
+  ],
+  "files": [
+    {
+      "path": "config/site.ts",
+      "content": "/**\n * ONE place for a site's content. Every block reads from here, so a new client site\n * = edit this file + pick a theme. Agents: fill this from the client brief first.\n */\nimport type { NavItem } from \"@/components/blocks/navbar\"\nimport type { SocialLink } from \"@/components/blocks/social-icons\"\nimport type { FooterColumn } from \"@/components/blocks/footer\"\n\nexport const siteConfig = {\n  name: \"Acme Studio\",\n  url: \"https://example.com\",\n  description: \"We design and build fast, modern websites that turn visitors into customers.\",\n  logo: undefined as string | undefined, // \"/logo.svg\"\n\n  contact: {\n    email: \"hello@example.com\",\n    phone: \"+1 (512) 555-0123\",\n    address: \"123 Main St, Austin, TX 78701\",\n    hours: \"Mon - Fri, 9am - 6pm\",\n  },\n\n  nav: [\n    { label: \"Home\", href: \"/\" },\n    {\n      label: \"Services\",\n      href: \"/services\",\n      children: [\n        { label: \"Web Design\", href: \"/services/web-design\", description: \"Custom sites that convert\" },\n        { label: \"Development\", href: \"/services/development\", description: \"Next.js, React, headless CMS\" },\n        { label: \"SEO\", href: \"/services/seo\", description: \"Rank and get found\" },\n      ],\n    },\n    { label: \"About\", href: \"/about\" },\n    { label: \"Blog\", href: \"/blog\" },\n    { label: \"Contact\", href: \"/contact\" },\n  ] satisfies NavItem[],\n\n  cta: { label: \"Book a call\", href: \"/contact\" },\n\n  socials: [\n    { platform: \"facebook\", href: \"https://facebook.com\" },\n    { platform: \"instagram\", href: \"https://instagram.com\" },\n    { platform: \"linkedin\", href: \"https://linkedin.com\" },\n  ] satisfies SocialLink[],\n\n  footerColumns: [\n    {\n      title: \"Company\",\n      links: [\n        { label: \"About\", href: \"/about\" },\n        { label: \"Blog\", href: \"/blog\" },\n        { label: \"Contact\", href: \"/contact\" },\n      ],\n    },\n    {\n      title: \"Services\",\n      links: [\n        { label: \"Web Design\", href: \"/services/web-design\" },\n        { label: \"Development\", href: \"/services/development\" },\n        { label: \"SEO\", href: \"/services/seo\" },\n      ],\n    },\n  ] satisfies FooterColumn[],\n\n  legal: [\n    { label: \"Privacy Policy\", href: \"/privacy-policy\" },\n    { label: \"Terms\", href: \"/terms\" },\n  ],\n}\n\nexport type SiteConfig = typeof siteConfig\n",
+      "type": "registry:file",
+      "target": "config/site.ts"
+    }
+  ],
+  "type": "registry:file"
+}

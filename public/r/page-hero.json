@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "page-hero",
+  "title": "Page Hero",
+  "description": "Inner-page banner with breadcrumb and optional background photo.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/blocks/page-hero.tsx",
+      "content": "import Link from \"next/link\"\nimport { ChevronRight } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface PageHeroProps {\n  title: React.ReactNode\n  description?: React.ReactNode\n  /** Breadcrumb trail. Last item is the current page (no href needed). */\n  breadcrumbs?: { label: string; href?: string }[]\n  /** Optional background photo (gets a dark overlay so text stays readable) */\n  backgroundImage?: string\n  className?: string\n}\n\n/** Banner for inner pages (About, Services, Contact...) with breadcrumb. */\nexport function PageHero({ title, description, breadcrumbs, backgroundImage, className }: PageHeroProps) {\n  const onImage = !!backgroundImage\n  return (\n    <section\n      className={cn(\n        \"relative isolate overflow-hidden\",\n        onImage ? \"text-white\" : \"bg-muted/50\",\n        className\n      )}\n    >\n      {onImage && (\n        <>\n          {/* eslint-disable-next-line @next/next/no-img-element */}\n          <img src={backgroundImage} alt=\"\" className=\"absolute inset-0 -z-20 size-full object-cover\" />\n          <div className=\"absolute inset-0 -z-10 bg-gradient-to-r from-black/80 via-black/60 to-black/30\" />\n        </>\n      )}\n      {!onImage && (\n        <div aria-hidden className=\"absolute -top-24 right-0 -z-10 size-96 rounded-full bg-primary/15 blur-3xl\" />\n      )}\n      <div className=\"mx-auto flex max-w-7xl flex-col gap-4 px-4 py-16 sm:px-6 md:py-24\">\n        {breadcrumbs && breadcrumbs.length > 0 && (\n          <nav aria-label=\"Breadcrumb\">\n            <ol\n              className={cn(\n                \"flex flex-wrap items-center gap-1.5 text-sm\",\n                onImage ? \"text-white/75\" : \"text-muted-foreground\"\n              )}\n            >\n              {breadcrumbs.map((crumb, i) => {\n                const last = i === breadcrumbs.length - 1\n                return (\n                  <li key={crumb.label} className=\"flex items-center gap-1.5\">\n                    {crumb.href && !last ? (\n                      <Link href={crumb.href} className=\"hover:text-primary\">\n                        {crumb.label}\n                      </Link>\n                    ) : (\n                      <span aria-current={last ? \"page\" : undefined} className={cn(last && \"font-medium text-primary\")}>\n                        {crumb.label}\n                      </span>\n                    )}\n                    {!last && <ChevronRight className=\"size-3.5\" />}\n                  </li>\n                )\n              })}\n            </ol>\n          </nav>\n        )}\n        <h1 className=\"max-w-3xl text-4xl font-extrabold tracking-tight text-balance md:text-5xl\">{title}</h1>\n        {description && (\n          <p className={cn(\"max-w-2xl text-lg\", onImage ? \"text-white/85\" : \"text-muted-foreground\")}>\n            {description}\n          </p>\n        )}\n      </div>\n    </section>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/blocks/page-hero.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

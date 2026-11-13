@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stats",
+  "title": "Stats",
+  "description": "Animated count-up numbers. Variants: band (primary strip), cards.",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/reveal.json",
+    "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/section-heading.json"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/stats.tsx",
+      "content": "\"use client\"\n\nimport { useEffect, useRef, useState } from \"react\"\nimport { animate, useInView } from \"framer-motion\"\nimport { cn } from \"@/lib/utils\"\nimport { Reveal } from \"@/components/blocks/reveal\"\nimport { SectionHeading } from \"@/components/blocks/section-heading\"\n\nexport interface StatItem {\n  value: number\n  label: string\n  prefix?: string\n  /** e.g. \"+\", \"%\", \"k+\" */\n  suffix?: string\n  decimals?: number\n  description?: string\n}\n\nexport interface StatsProps {\n  eyebrow?: string\n  title?: React.ReactNode\n  description?: React.ReactNode\n  items: StatItem[]\n  /** band: full-width primary strip. cards: bordered cards on the page background */\n  variant?: \"band\" | \"cards\"\n  id?: string\n  className?: string\n}\n\n/** Counts from 0 to `value` the first time it scrolls into view. */\nexport function CountUp({\n  value,\n  decimals = 0,\n  prefix = \"\",\n  suffix = \"\",\n}: Pick<StatItem, \"value\" | \"decimals\" | \"prefix\" | \"suffix\">) {\n  const ref = useRef<HTMLSpanElement>(null)\n  const inView = useInView(ref, { once: true, margin: \"-40px\" })\n  const [display, setDisplay] = useState(0)\n\n  useEffect(() => {\n    if (!inView) return\n    const controls = animate(0, value, {\n      duration: 1.8,\n      ease: \"easeOut\",\n      onUpdate: (v) => setDisplay(v),\n    })\n    return () => controls.stop()\n  }, [inView, value])\n\n  return (\n    <span ref={ref} className=\"tabular-nums\">\n      {prefix}\n      {display.toLocaleString(\"en-US\", { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}\n      {suffix}\n    </span>\n  )\n}\n\nexport function Stats({\n  eyebrow,\n  title,\n  description,\n  items,\n  variant = \"band\",\n  id = \"stats\",\n  className,\n}: StatsProps) {\n  const band = variant === \"band\"\n  return (\n    <section\n      id={id}\n      className={cn(band ? \"bg-primary py-16 text-primary-foreground\" : \"py-20 md:py-28\", className)}\n    >\n      <div className=\"mx-auto max-w-7xl px-4 sm:px-6\">\n        {title && (\n          <SectionHeading\n            eyebrow={eyebrow}\n            title={title}\n            description={description}\n            className={cn(band && \"[&_p]:text-primary-foreground/80 [&_span]:text-primary-foreground/80\")}\n          />\n        )}\n        <div\n          className={cn(\"grid gap-6\", band ? \"gap-y-10\" : \"\")}\n          style={{ gridTemplateColumns: \"repeat(auto-fit, minmax(13rem, 1fr))\" }}\n        >\n          {items.map((item, i) => (\n            <Reveal\n              key={item.label}\n              delay={i * 0.08}\n              className={cn(\n                \"flex flex-col gap-1 text-center\",\n                !band && \"rounded-2xl border border-border bg-card p-8\"\n              )}\n            >\n              <div className={cn(\"text-4xl font-extrabold tracking-tight md:text-5xl\", !band && \"text-primary\")}>\n                <CountUp value={item.value} decimals={item.decimals} prefix={item.prefix} suffix={item.suffix} />\n              </div>\n              <div className=\"mt-1 font-semibold\">{item.label}</div>\n              {item.description && (\n                <p className={cn(\"text-sm\", band ? \"text-primary-foreground/75\" : \"text-muted-foreground\")}>\n                  {item.description}\n                </p>\n              )}\n            </Reveal>\n          ))}\n        </div>\n      </div>\n    </section>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/blocks/stats.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

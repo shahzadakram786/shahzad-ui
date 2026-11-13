@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "top-bar",
+  "title": "Top Bar",
+  "description": "Contact strip above the navbar: email, phone, address, hours, socials.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/social-icons.json"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/top-bar.tsx",
+      "content": "import { Clock, Mail, MapPin, Phone } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\nimport { SocialLinks, type SocialLink } from \"@/components/blocks/social-icons\"\n\nexport interface TopBarProps {\n  email?: string\n  phone?: string\n  address?: string\n  hours?: string\n  socials?: SocialLink[]\n  className?: string\n}\n\n/** Thin contact strip above the navbar (business / clinic / restaurant sites). Hidden on small screens. */\nexport function TopBar({ email, phone, address, hours, socials, className }: TopBarProps) {\n  return (\n    <div className={cn(\"hidden bg-primary text-primary-foreground md:block\", className)}>\n      <div className=\"mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2 text-sm sm:px-6\">\n        <div className=\"flex flex-wrap items-center gap-x-6 gap-y-1\">\n          {email && (\n            <a href={`mailto:${email}`} className=\"flex items-center gap-1.5 opacity-90 hover:opacity-100\">\n              <Mail className=\"size-3.5\" />\n              {email}\n            </a>\n          )}\n          {phone && (\n            <a\n              href={`tel:${phone.replace(/[^\\d+]/g, \"\")}`}\n              className=\"flex items-center gap-1.5 opacity-90 hover:opacity-100\"\n            >\n              <Phone className=\"size-3.5\" />\n              {phone}\n            </a>\n          )}\n          {address && (\n            <span className=\"hidden items-center gap-1.5 opacity-90 lg:flex\">\n              <MapPin className=\"size-3.5\" />\n              {address}\n            </span>\n          )}\n          {hours && (\n            <span className=\"hidden items-center gap-1.5 opacity-90 xl:flex\">\n              <Clock className=\"size-3.5\" />\n              {hours}\n            </span>\n          )}\n        </div>\n        {socials && socials.length > 0 && (\n          <SocialLinks\n            links={socials}\n            itemClassName=\"size-7 border-transparent hover:bg-primary-foreground hover:text-primary\"\n          />\n        )}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/blocks/top-bar.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

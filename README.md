@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# shahzad-ui
 
-## Getting Started
+My personal website block library. Every section I kept rebuilding for each project (navbar, hero, services, FAQ, footer...) written once, prop-driven and theme-driven, and installable into any Next.js + Tailwind + shadcn project with one command.
 
-First, run the development server:
+## Install a block
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx shadcn@latest add https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/navbar.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Or add the namespace once to the project's `components.json`:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```json
+"registries": {
+  "@shahzad": "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/{name}.json"
+}
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npx shadcn@latest add @shahzad/navbar @shahzad/hero @shahzad/footer
+```
 
-## Learn More
+### New website in 3 commands
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npx shadcn@latest init
+npx shadcn@latest add @shahzad/website-kit   # every block + theme provider + config/site.ts
+npx shadcn@latest add @shahzad/theme-royal   # or theme-emerald, theme-neon, theme-ocean
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Blocks
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Name | What it is | Variants |
+| --- | --- | --- |
+| `navbar` | Sticky glass nav, dropdowns, phone, CTA, theme toggle, animated mobile menu, scroll-spy | `default`, `pill` |
+| `top-bar` | Email / phone / address / hours / socials strip | |
+| `hero` | Badge, title, 2 CTAs, image or custom media, highlight strip | `split`, `centered` · bg `glow`, `grid`, `none` |
+| `page-hero` | Inner page banner + breadcrumb, optional photo | |
+| `features` | Services / features grid | `cards`, `expand` |
+| `stats` | Count-up numbers | `band`, `cards` |
+| `testimonials` | Ratings, avatars or initials | `carousel`, `grid` |
+| `faq` | Animated accordion + FAQPage SEO schema | `centered`, `split` |
+| `contact-section` | Info cards + form (POST to endpoint or `onSubmit`), map | |
+| `cta-banner` | Big primary CTA box | |
+| `footer` | Brand, socials, link columns, contact, legal | `dark`, `muted` |
 
-## Deploy on Vercel
+Helpers: `reveal`, `section-heading`, `social-icons`, `theme-provider`, `theme-toggle`, `site-config`.
+Themes: `theme-royal`, `theme-emerald`, `theme-neon`, `theme-ocean`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Example
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```tsx
+import { Navbar } from "@/components/blocks/navbar"
+import { Hero } from "@/components/blocks/hero"
+import { Highlight } from "@/components/blocks/section-heading"
+import { siteConfig } from "@/config/site"
+
+<Navbar brand={{ name: siteConfig.name, logo: "/logo.svg" }} items={siteConfig.nav} cta={siteConfig.cta} phone={siteConfig.contact.phone} />
+<Hero
+  badge="Trusted by 100+ practices"
+  title={<>Get paid faster for <Highlight>your care</Highlight></>}
+  primaryCta={{ label: "Free audit", href: "/contact" }}
+  image={{ src: "/hero.jpg", alt: "Doctor" }}
+/>
+```
+
+## Working on the library
+
+```bash
+npm install
+npm run dev              # showcase at localhost:3000 (palette switcher bottom-right)
+npm run registry:build   # regenerate public/r/*.json after editing blocks or registry.json
+```
+
+Commit `public/r` too, that's what projects install from. Rules for writing blocks are in [AGENTS.md](./AGENTS.md).
+For AI agents in other projects, paste [docs/AGENT-SNIPPET.md](./docs/AGENT-SNIPPET.md) into their AGENTS.md / CLAUDE.md.

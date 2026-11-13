@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-provider",
+  "title": "Theme Provider",
+  "description": "next-themes provider for light/dark mode.",
+  "dependencies": [
+    "next-themes"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/blocks/theme-provider.tsx",
+      "content": "\"use client\"\n\nimport { ThemeProvider as NextThemesProvider } from \"next-themes\"\n\n/**\n * Wrap <body> children in app/layout.tsx:\n * <ThemeProvider attribute=\"class\" defaultTheme=\"system\" enableSystem disableTransitionOnChange>\n * and add suppressHydrationWarning to <html>.\n */\nexport function ThemeProvider(props: React.ComponentProps<typeof NextThemesProvider>) {\n  return <NextThemesProvider {...props} />\n}\n",
+      "type": "registry:component",
+      "target": "components/blocks/theme-provider.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

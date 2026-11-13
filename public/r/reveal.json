@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "reveal",
+  "title": "Reveal",
+  "description": "Fade/slide-in-on-scroll wrapper (framer-motion).",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/blocks/reveal.tsx",
+      "content": "\"use client\"\n\nimport { motion, type HTMLMotionProps } from \"framer-motion\"\n\ntype Direction = \"up\" | \"down\" | \"left\" | \"right\" | \"none\"\n\nconst offsets: Record<Direction, { x?: number; y?: number }> = {\n  up: { y: 32 },\n  down: { y: -32 },\n  left: { x: 32 },\n  right: { x: -32 },\n  none: {},\n}\n\nexport interface RevealProps extends HTMLMotionProps<\"div\"> {\n  direction?: Direction\n  delay?: number\n  duration?: number\n  /** Animate only the first time it scrolls into view (default true) */\n  once?: boolean\n}\n\n/**\n * Fade + slide in when scrolled into view.\n * Wrap any section/card: <Reveal delay={0.1}>...</Reveal>\n */\nexport function Reveal({\n  direction = \"up\",\n  delay = 0,\n  duration = 0.6,\n  once = true,\n  children,\n  ...props\n}: RevealProps) {\n  return (\n    <motion.div\n      initial={{ opacity: 0, ...offsets[direction] }}\n      whileInView={{ opacity: 1, x: 0, y: 0 }}\n      viewport={{ once, margin: \"-80px\" }}\n      transition={{ duration, delay, ease: [0.21, 0.47, 0.32, 0.98] }}\n      {...props}\n    >\n      {children}\n    </motion.div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/blocks/reveal.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

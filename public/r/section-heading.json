@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "section-heading",
+  "title": "Section Heading",
+  "description": "Eyebrow + title + description used by every section. Also exports <Highlight>.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/shahzadakram786/shahzad-ui/main/public/r/reveal.json"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/section-heading.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\nimport { Reveal } from \"@/components/blocks/reveal\"\n\nexport interface SectionHeadingProps {\n  eyebrow?: string\n  title: React.ReactNode\n  description?: React.ReactNode\n  align?: \"left\" | \"center\"\n  className?: string\n}\n\n/** Small uppercase eyebrow + big title + muted description. Used by every section block. */\nexport function SectionHeading({\n  eyebrow,\n  title,\n  description,\n  align = \"center\",\n  className,\n}: SectionHeadingProps) {\n  return (\n    <Reveal\n      className={cn(\n        \"mb-12 flex max-w-3xl flex-col gap-3\",\n        align === \"center\" ? \"mx-auto items-center text-center\" : \"items-start text-left\",\n        className\n      )}\n    >\n      {eyebrow && (\n        <span className=\"text-sm font-semibold uppercase tracking-wider text-primary\">{eyebrow}</span>\n      )}\n      <h2 className=\"text-3xl font-bold tracking-tight text-balance md:text-4xl\">{title}</h2>\n      {description && (\n        <p className=\"text-lg text-pretty text-muted-foreground\">{description}</p>\n      )}\n    </Reveal>\n  )\n}\n\n/** Wrap a word in the title to color it with the theme primary: title={<>Grow your <Highlight>revenue</Highlight></>} */\nexport function Highlight({ children, className }: { children: React.ReactNode; className?: string }) {\n  return <span className={cn(\"text-primary\", className)}>{children}</span>\n}\n",
+      "type": "registry:component",
+      "target": "components/blocks/section-heading.tsx"
+    }
+  ],
+  "type": "registry:component"
+}
